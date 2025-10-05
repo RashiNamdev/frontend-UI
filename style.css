@@ -1,0 +1,323 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("./images/Galaxy.jpg") no-repeat
+    center/cover;
+
+  overflow: hidden;
+} /* container sized to fit largest orbit */
+.planet-box {
+  width: 800px;
+  height: 800px;
+  position: relative;
+  display: grid;
+  place-items: center;
+} /* Sun in center */
+.sun {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: url("./images/sun.png") no-repeat center/cover;
+  z-index: 20;
+} /* static orbit ring */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+} /* orbit sizes (match planet distance) */
+.orbit-mercury {
+  width: 120px;
+  height: 120px;
+}
+.orbit-venus {
+  width: 220px;
+  height: 220px;
+}
+.orbit-earth {
+  width: 320px;
+  height: 320px;
+}
+.orbit-mars {
+  width: 430px;
+  height: 430px;
+}
+.orbit-jupiter {
+  width: 540px;
+  height: 540px;
+}
+.orbit-saturn {
+  width: 650px;
+  height: 650px;
+}
+.orbit-uranus {
+  width: 760px;
+  height: 760px;
+}
+.orbit-neptune {
+  width: 880px;
+  height: 880px;
+} /* spinner that rotates (moves planet around ring) */
+.orbit .spinner {
+  position: absolute;
+  inset: 0; /* fill orbit */
+  transform-origin: 50% 50%;
+} /* planet base style: placed at right edge of orbit (left:100%) */
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* center the planet's own box on the edge */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  z-index: 15;
+} /* planet sizes, images and spin durations */ /* Mercury */
+.orbit-mercury .planet {
+  width: 20px;
+  height: 20px;
+  background-image: url("./images/mercury.png");
+}
+.orbit-mercury .spinner {
+  animation: spin-merc 4s linear infinite;
+}
+.orbit-mercury .planet {
+  animation: counter-merc 4s linear infinite;
+} /* Venus */
+.orbit-venus .planet {
+  width: 30px;
+  height: 30px;
+  background-image: url("./images/venus.png");
+}
+.orbit-venus .spinner {
+  animation: spin-venus 10s linear infinite;
+}
+.orbit-venus .planet {
+  animation: counter-venus 10s linear infinite;
+} /* Earth */
+.orbit-earth .planet {
+  width: 35px;
+  height: 35px;
+  background-image: url("./images/earth.png");
+}
+.orbit-earth .spinner {
+  animation: spin-earth 12s linear infinite;
+}
+.orbit-earth .planet {
+  animation: counter-earth 12s linear infinite;
+} /* Mars */
+.orbit-mars .planet {
+  width: 25px;
+  height: 25px;
+  background-image: url("./images/mars.png");
+}
+.orbit-mars .spinner {
+  animation: spin-mars 20s linear infinite;
+}
+.orbit-mars .planet {
+  animation: counter-mars 20s linear infinite;
+} /* Jupiter */
+.orbit-jupiter .planet {
+  width: 60px;
+  height: 60px;
+  background-image: url("./images/jupiter.png");
+}
+.orbit-jupiter .spinner {
+  animation: spin-jupiter 50s linear infinite;
+}
+.orbit-jupiter .planet {
+  animation: counter-jupiter 50s linear infinite;
+} /* Saturn */
+.orbit-saturn .planet {
+  width: 65px;
+  height: 65px;
+  background-image: url("./images/saturn.png");
+}
+.orbit-saturn .spinner {
+  animation: spin-saturn 70s linear infinite;
+}
+.orbit-saturn .planet {
+  animation: counter-saturn 70s linear infinite;
+} /* Uranus */
+.orbit-uranus .planet {
+  width: 45px;
+  height: 45px;
+  background-image: url("./images/urnaus.png");
+}
+.orbit-uranus .spinner {
+  animation: spin-uranus 100s linear infinite;
+}
+.orbit-uranus .planet {
+  animation: counter-uranus 100s linear infinite;
+} /* Neptune */
+.orbit-neptune .planet {
+  width: 40px;
+  height: 40px;
+  background-image: url("./images/neptune.png");
+}
+.orbit-neptune .spinner {
+  animation: spin-neptune 120s linear infinite;
+}
+.orbit-neptune .planet {
+  animation: counter-neptune 120s linear infinite;
+} /* spinner keyframes: rotate the spinner to orbit the planet */
+@keyframes spin-merc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-venus {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-earth {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-mars {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-jupiter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-saturn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-uranus {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-neptune {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} /* counter rotation for the planet element so it stays 'upright' visually */
+@keyframes counter-merc {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-venus {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-earth {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-mars {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-jupiter {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-saturn {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-uranus {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes counter-neptune {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+} /* small responsive tweak */
+@media (max-width: 1100px) {
+  .planet-box {
+    width: min(900px, 92vmin);
+    height: min(900px, 92vmin);
+  }
+}
+@media (max-width: 700px) {
+  .planet-box {
+    width: min(680px, 92vmin);
+    height: min(680px, 92vmin);
+  }
+  .sun {
+    width: 80px;
+    height: 80px;
+  }
+}
